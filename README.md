@@ -1,18 +1,25 @@
-# 🧠 NLP to Vector Space Proximity to RAG Workshop
+# 🧠 Vector Space Proximity Workshop
 
 ## 📚 Overview
 
 This workshop introduces foundational Natural Language Processing (NLP)
-concepts and progressively builds toward **Vector Space Proximity**,
-**Word Embeddings**, and **LLM-powered applications**.
+concepts and builds toward **Vector Space Proximity** and **Information
+Retrieval (IR) evaluation**.
 
-Students implement: - Term-Document Incidence Matrix - Term Frequency
-(TF) - Log Frequency Weighting - Document Frequency (DF) - Inverse
-Document Frequency (IDF) - TF-IDF - Word2Vec Embeddings - Cosine
-Similarity
+Students implement:
 
-These are then applied to real-world systems: - Chatbots -
-Recommendation Engines - Semantic Search Systems
+-   Term-Document Incidence Matrix\
+-   Term Frequency (TF)\
+-   Log Frequency Weighting\
+-   Document Frequency (DF)\
+-   Inverse Document Frequency (IDF)\
+-   TF-IDF\
+-   Cosine Similarity
+
+These are then used to:
+
+-   Retrieve documents based on similarity\
+-   Evaluate retrieval systems using IR metrics
 
 ------------------------------------------------------------------------
 
@@ -20,84 +27,109 @@ Recommendation Engines - Semantic Search Systems
 
 By the end of this workshop, students will be able to:
 
--   Represent text as vectors using multiple techniques
--   Compute similarity between documents using cosine similarity
--   Build a simple semantic chatbot
--   Understand how embeddings power modern AI systems
--   Connect classical IR techniques to modern LLM workflows
+-   Represent text as vectors using TF-IDF\
+-   Compute similarity using cosine similarity\
+-   Build a basic retrieval system\
+-   Evaluate IR systems using:
+    -   Precision, Recall, F1\
+    -   Precision@K\
+    -   Average Precision (AP)\
+    -   Mean Reciprocal Rank (MRR)\
+-   Understand relevance vs keyword matching\
+-   Connect classical IR to modern AI systems
 
 ------------------------------------------------------------------------
 
 ## 🧪 Hands-On Components
 
-Students will: - Build preprocessing pipelines (tokenization,
-normalization, stopword removal) - Implement TF, IDF, and TF-IDF from
-scratch - Train a Word2Vec model - Compute vector similarity - Build a
-travel assistant chatbot - Extend the chatbot using OpenAI APIs
+Students will:
 
-------------------------------------------------------------------------
-
-## 🤖 From Vector Space to LLMs
-
-The workshop bridges traditional IR with modern AI:
-
-  Classical IR        Modern AI
-  ------------------- --------------------------------------
-  TF-IDF              Embeddings
-  Cosine Similarity   Semantic Search
-  Document Matching   Retrieval-Augmented Generation (RAG)
+-   Build a preprocessing pipeline:
+    -   Tokenization\
+    -   Normalization\
+    -   Stop-word removal\
+    -   Stemming
+-   Implement from scratch:
+    -   Incidence Matrix\
+    -   TF and Log TF\
+    -   DF and IDF\
+    -   TF-IDF
+-   Compute:
+    -   Cosine similarity\
+    -   Ranked retrieval
+-   Evaluate:
+    -   Confusion matrix\
+    -   Precision, Recall, F1\
+    -   Precision@K\
+    -   Average Precision (AP)\
+    -   Mean Reciprocal Rank (MRR)\
+    -   Kappa (inter-judge agreement)
 
 ------------------------------------------------------------------------
 
 ## 🔍 Relevance to RAG (Retrieval-Augmented Generation)
 
-RAG systems combine: 1. **Retrieval** (vector search) 2. **Generation**
-(LLMs)
+This workshop focuses on the **retrieval layer** of modern AI systems.
 
-### How This Workshop Connects:
+### Classical IR → Modern AI
 
--   TF-IDF and embeddings → represent documents as vectors
--   Cosine similarity → retrieve relevant documents
--   Word2Vec → semantic understanding
--   Chatbot → generation layer
+  Classical IR         Modern Systems
+  -------------------- ----------------
+  TF-IDF               Embeddings
+  Cosine Similarity    Vector Search
+  Document Retrieval   RAG
 
-### RAG Pipeline:
+### RAG Pipeline Connection
 
-1.  User query → embedding
-2.  Retrieve top-k similar documents (vector proximity)
-3.  Pass context + query to LLM
-4.  Generate grounded response
+1.  Represent documents as vectors\
+2.  Represent query as vector\
+3.  Compute similarity (vector proximity)\
+4.  Retrieve top-k documents\
+5.  Pass to LLM for generation
+
+This workshop focuses on steps **1--4**.
 
 ------------------------------------------------------------------------
 
 ## 🏗️ Example Use Case
 
-Travel Assistant Chatbot: - User: "Is there an evening bus to
-Toronto?" - System: - Convert query to vector - Find closest matching
-schedule - Use LLM to generate natural response
+Travel Information Retrieval System:
+
+-   Query: *"Is there an evening bus to Toronto?"*\
+-   System:
+    -   Convert query to vector\
+    -   Compare with document vectors\
+    -   Retrieve most relevant schedules
 
 ------------------------------------------------------------------------
 
 ## ⚖️ Key Takeaways
 
--   Vector space proximity is the **foundation of modern AI retrieval**
--   Embeddings enable **semantic understanding**
--   LLMs add **reasoning and language generation**
--   Together, they form the backbone of **RAG systems**
+-   Vector space proximity is the **foundation of retrieval systems**\
+-   TF-IDF balances **local importance** and **global rarity**\
+-   Cosine similarity enables **semantic matching**\
+-   Evaluation must be based on **information need**, not keywords
 
 ------------------------------------------------------------------------
 
 ## 🚀 Next Steps
 
--   Integrate FAISS or Chroma for vector storage
--   Use Sentence Transformers for better embeddings
--   Build full RAG pipelines
--   Deploy chatbot with Streamlit or FastAPI
+-   Replace TF-IDF with embeddings\
+-   Use vector databases (FAISS, Chroma)\
+-   Build full RAG pipelines\
+-   Integrate with LLMs
 
 ------------------------------------------------------------------------
 
 ## 👨‍🏫 Instructor Notes
 
-This workshop is designed for: - Entry-level ML/NLP students - Hands-on,
-code-first learning - Progressive understanding from math →
-implementation → applications
+This workshop is designed for:
+
+-   Entry-level ML/NLP students\
+-   Hands-on, code-first learning\
+-   Progression from math → implementation → evaluation
+
+Emphasis is placed on:
+
+> Understanding **why retrieval works** before moving to modern AI
+> systems.
