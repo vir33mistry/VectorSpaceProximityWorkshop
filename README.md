@@ -1,135 +1,105 @@
-# 🧠 Vector Space Proximity Workshop
+# VectorSpaceProximity Assignment
 
-## 📚 Overview
+This folder contains the final completed notebook for the Vector Space Proximity assignment.
 
-This workshop introduces foundational Natural Language Processing (NLP)
-concepts and builds toward **Vector Space Proximity** and **Information
-Retrieval (IR) evaluation**.
+## Files
 
-Students implement:
+- `VectorSpaceProximity_final.ipynb` → final completed notebook
+- `VectorSpaceProximity_updated.ipynb` → earlier completed version
+- `VectorSpaceProximity.ipynb` → original assignment notebook
 
--   Term-Document Incidence Matrix\
--   Term Frequency (TF)\
--   Log Frequency Weighting\
--   Document Frequency (DF)\
--   Inverse Document Frequency (IDF)\
--   TF-IDF\
--   Cosine Similarity
+## What this notebook does
 
-These are then used to:
+The notebook completes the end-to-end Vector Space Proximity challenge by building a small Information Retrieval system on a real text corpus.
 
--   Retrieve documents based on similarity\
--   Evaluate retrieval systems using IR metrics
+It includes:
 
-------------------------------------------------------------------------
+- loading a real corpus using the **20 Newsgroups** dataset from `sklearn.datasets`
+- text preprocessing
+- tokenizer
+- normalization
+- stop-word removal
+- stemming
+- term-document incidence matrix
+- term frequency
+- log-frequency weighting
+- document frequency
+- inverse document frequency
+- TF-IDF weighting
+- cosine similarity retrieval
+- 5 information needs / queries
+- comparison of **Binary**, **Raw TF**, and **TF-IDF**
+- relevance explanations for retrieved documents
+- evaluation for 3 queries
+- confusion matrix
+- precision, recall, F1-score
+- Precision@10
+- Average Precision (AP)
+- Reciprocal Rank (RR) and MRR
+- Cohen's Kappa demonstration
+- reflection answers and simple talking points
 
-## 🎯 Learning Objectives
+## How the corpus is loaded
 
-By the end of this workshop, students will be able to:
+The corpus is loaded with:
 
--   Represent text as vectors using TF-IDF\
--   Compute similarity using cosine similarity\
--   Build a basic retrieval system\
--   Evaluate IR systems using:
-    -   Precision, Recall, F1\
-    -   Precision@K\
-    -   Average Precision (AP)\
-    -   Mean Reciprocal Rank (MRR)\
--   Understand relevance vs keyword matching\
--   Connect classical IR to modern AI systems
+```python
+from sklearn.datasets import fetch_20newsgroups
+```
 
-------------------------------------------------------------------------
+The notebook uses selected categories from the **20 Newsgroups** dataset.
 
-## 🧪 Hands-On Components
+Important points:
 
-Students will:
+- the corpus is **not required** to be stored as a `.csv` file
+- it is fetched from **scikit-learn**
+- on the first run, scikit-learn may download the dataset and cache it locally
+- the notebook also includes a step to **export the selected corpus to a CSV file** for easier inspection
 
--   Build a preprocessing pipeline:
-    -   Tokenization\
-    -   Normalization\
-    -   Stop-word removal\
-    -   Stemming
--   Implement from scratch:
-    -   Incidence Matrix\
-    -   TF and Log TF\
-    -   DF and IDF\
-    -   TF-IDF
--   Compute:
-    -   Cosine similarity\
-    -   Ranked retrieval
--   Evaluate:
-    -   Confusion matrix\
-    -   Precision, Recall, F1\
-    -   Precision@K\
-    -   Average Precision (AP)\
-    -   Mean Reciprocal Rank (MRR)\
-    -   Kappa (inter-judge agreement)
+## Selected categories
 
-------------------------------------------------------------------------
+The notebook uses these six categories:
 
-## 🔍 Relevance to RAG (Retrieval-Augmented Generation)
+- `sci.space`
+- `rec.sport.hockey`
+- `comp.graphics`
+- `talk.politics.mideast`
+- `sci.med`
+- `rec.autos`
 
-This workshop focuses on the **retrieval layer** of modern AI systems.
+## How to run
 
-### Classical IR → Modern AI
+1. Open the project folder in VS Code or Jupyter.
+2. Make sure Python and Jupyter are installed.
+3. Install the required packages if they are not already installed.
+4. Run the notebook from top to bottom.
 
-  Classical IR         Modern Systems
-  -------------------- ----------------
-  TF-IDF               Embeddings
-  Cosine Similarity    Vector Search
-  Document Retrieval   RAG
+## Suggested packages
 
-### RAG Pipeline Connection
+Install these packages in your environment if needed:
 
-1.  Represent documents as vectors\
-2.  Represent query as vector\
-3.  Compute similarity (vector proximity)\
-4.  Retrieve top-k documents\
-5.  Pass to LLM for generation
+```bash
+pip install numpy pandas matplotlib scikit-learn nltk jupyter
+```
 
-This workshop focuses on steps **1--4**.
+## Important note before running
 
-------------------------------------------------------------------------
+Because the notebook uses `fetch_20newsgroups`, the first run may need internet access to download the dataset if it is not already cached on your system.
 
-## 🏗️ Example Use Case
+## Output
 
-Travel Information Retrieval System:
+When you run the notebook, it will also create a CSV export file named:
 
--   Query: *"Is there an evening bus to Toronto?"*\
--   System:
-    -   Convert query to vector\
-    -   Compare with document vectors\
-    -   Retrieve most relevant schedules
+- `20newsgroups_selected_corpus.csv`
 
-------------------------------------------------------------------------
+This CSV export is an extra supporting file.  
+The assignment itself is still correctly based on the scikit-learn corpus source.
 
-## ⚖️ Key Takeaways
+## Final note
 
--   Vector space proximity is the **foundation of retrieval systems**\
--   TF-IDF balances **local importance** and **global rarity**\
--   Cosine similarity enables **semantic matching**\
--   Evaluation must be based on **information need**, not keywords
+This final notebook is designed so the assignment questions are covered clearly, and the markdown talking points are written in simple language for class explanation.
 
-------------------------------------------------------------------------
+## Authors
 
-## 🚀 Next Steps
-
--   Replace TF-IDF with embeddings\
--   Use vector databases (FAISS, Chroma)\
--   Build full RAG pipelines\
--   Integrate with LLMs
-
-------------------------------------------------------------------------
-
-## 👨‍🏫 Instructor Notes
-
-This workshop is designed for:
-
--   Entry-level ML/NLP students\
--   Hands-on, code-first learning\
--   Progression from math → implementation → evaluation
-
-Emphasis is placed on:
-
-> Understanding **why retrieval works** before moving to modern AI
-> systems.
+1) Param Rasaniya, Student ID: 9086095  
+2) Viraj Mistry, Student ID: 9088985
